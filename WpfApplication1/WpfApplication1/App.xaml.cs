@@ -19,6 +19,15 @@ namespace WpfApplication1
             string str1 = "test";
             return 1;
         }
+
+        public void dowork1(string str1)
+        {
+            new System.Threading.Thread(() =>
+            {
+                System.Threading.Thread.Sleep(3000);
+
+            }).Start();
+        }
     }
     
 }
