@@ -28,6 +28,11 @@ namespace WpfApplication1
 
             }).Start();
         }
+
+        public void dista()
+        {
+            int i = 3;
+        }
     }
     
 }
