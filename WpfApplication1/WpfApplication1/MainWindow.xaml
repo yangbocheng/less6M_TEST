@@ -5,8 +5,76 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApplication1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
+        Title="MainWindow" Height="600" Width="1200">
+    <Window.Resources>
+        <local:cvert x:Key="myconvert"></local:cvert>
+        <Style TargetType="{x:Type TabItem}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TabItem}">
+                        <Border BorderBrush="LightGreen" x:Name="border" BorderThickness="0" CornerRadius="3,3,0,0"
+                                Margin="1,1,1,-1" Width="120" Height="30" Background="LightGray">
+                            <StackPanel Orientation="Vertical">
+                                <Line x:Name="ln" StrokeThickness="3" Visibility="Collapsed" Stroke="Blue" X1="0" X2="{Binding ElementName=tb,Path=ActualWidth}" Y1="0" Y2="0"></Line>
+                                <TextBlock x:Name="tb" VerticalAlignment="Stretch" 
+                                       FontSize="14"
+                                       Padding="0,5,0,0"
+                                           TextAlignment="Center"
+                                       HorizontalAlignment="Stretch" Text="{TemplateBinding Header}"></TextBlock>
+                            </StackPanel>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Border.Background" Value="White" TargetName="border"></Setter>
+                            </Trigger>
+                            <Trigger Property="IsSelected" Value="true">
+                                <Setter Property="Border.Background" Value="White" TargetName="border"></Setter>
+                                <Setter Property="Visibility" Value="Visible" TargetName="ln"></Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="{x:Type Button}" x:Key="tbstyle">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" BorderThickness="3" CornerRadius="5" BorderBrush="Green">
+                            <ContentPresenter Content="{TemplateBinding Content}"></ContentPresenter>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" Value="Red" TargetName="border"></Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid HorizontalAlignment="Left" Margin="0,0,0,-0.2" Width="518">
+        <Button x:Name="btn1" Style="{StaticResource tbstyle}" Foreground="Blue" Click="btn1_Click" Content="Button" HorizontalAlignment="Left" Margin="50,46,0,0" VerticalAlignment="Top" Width="75"/>
+        <TextBox Background="LightBlue" x:Name="tbfile" HorizontalAlignment="Left" Height="23" Margin="50,79,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="214"/>
+        <TextBox Background="Wheat" x:Name="tbresult" HorizontalAlignment="Left" Height="23" Margin="50,155,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="214"/>
+        <TextBox Background="Wheat" x:Name="tbfileinfo" HorizontalAlignment="Left" Height="23" Margin="50,198,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="214"/>
+        <TextBlock x:Name="textBlock"  HorizontalAlignment="Left" Margin="50,251,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" MinHeight="10" Width="184">
+            <Run Text="hallo" FontFamily="Microsoft Yahei" FontSize="20"></Run>
+            <LineBreak/>
+            <Run Text="nimahai" Foreground="Red"></Run>
+        </TextBlock>
+        <TabControl BorderBrush="Black" x:Name="tabControl" BorderThickness="1,0,1,0" HorizontalAlignment="Left" Height="311" Margin="543,122,-493,0" VerticalAlignment="Top" Width="468">
+            <TabItem Header="afasfasfasf">
+                <Grid Background="#FFFFFF"/>
+            </TabItem>
+            <TabItem Header="TabItem">
+                <Grid Background="#FFFFFF"/>
+            </TabItem>
+        </TabControl>
+        <local:UserControl1 MouseUp="UserControl1_MouseUp" Image1Source="1.png" Border1Brush="Green" HorizontalAlignment="Left" Height="130" Margin="50,333,0,0" VerticalAlignment="Top" Width="100"/>
+        <Label x:Name="label" Content="Label" Background="{DynamicResource brush111}" HorizontalAlignment="Left" Margin="303,303,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1" Content="Label" Background="{StaticResource brush111}" HorizontalAlignment="Left" Margin="393,329,0,0" VerticalAlignment="Top"/>
+
     </Grid>
 </Window>
