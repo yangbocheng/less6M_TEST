@@ -33,6 +33,11 @@ namespace WpfApplication1
         {
             int i = 3;
         }
+
+        public void ddddddd()
+        {
+            int i = 3;
+        }
     }
     
 }
