@@ -43,7 +43,7 @@
   <ItemGroup>
     <Reference Include="FastDFS.Client, Version=1.0.0.4, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\FastDFS.Client.dll</HintPath>
+      <HintPath>.\FastDFS.Client.dll</HintPath>
     </Reference>
     <Reference Include="log4net">
       <HintPath>.\log4net.dll</HintPath>
