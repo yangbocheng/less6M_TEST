@@ -14,5 +14,11 @@ namespace WpfApplication1
     public partial class App : Application
     {
         int i = 3;
+        public int getNum()
+        {
+            string str1 = "test";
+            return 1;
+        }
     }
+    
 }
